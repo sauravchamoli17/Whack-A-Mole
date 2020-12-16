@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack A Mole</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+  <h1>Whack-a-mole! <span class="score">0</span></h1>
+
+  <div class="game">
+    <div class="hole hole1">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole2">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole3">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole4">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole5">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole6">
+      <div class="mole"></div>
+    </div>
+  </div>
+
+  <div class="popup">
+   <form>
+     <p>Select Level</p>
+     <input type="radio" id="normal" name="level" value="200,1000" checked="checked">
+     <label for="male">normal</label>
+     <input type="radio" id="nightmare" name="level" value="100,800">
+     <label for="female">nightmare</label>
+     <input type="radio" id="hell" name="level" value="50,600">
+     <label for="other">hell</label>
+    <button type="submit" onClick="startGame()">Start!</button>
+    <span class="close">&#x2715;</span>
+   </form>
+  </div>
+    <script src="main.js"></script>
+</body>
+</html>
