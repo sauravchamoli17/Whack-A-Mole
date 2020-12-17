@@ -1,6 +1,10 @@
 const holes = document.querySelectorAll('.hole');
 const scoreboard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
+const popup = document.querySelector('.popup');
+const start = document.querySelector('.start');
+const shoot = document.querySelector('.shoot');
+const gameOver = document.querySelector('.game__over');
 let lastHole, timeUp,score;
 timeUp = false;
 score = 0;
@@ -30,16 +34,22 @@ function peep() {
 }
 
 function startGame() {
+    start.play();
     scoreboard.textContent = 0;
     timeUp = false;
     score = 0;
     peep();
-    setTimeout(() => timeUp = true, 10000);
+    setTimeout(() => {
+       timeUp = true;
+       gameOver.play();
+    },10000);
 }
 
 function bonk(e) {
     if (!e.isTrusted) return; //cheater!
     score++;
+    shoot.currentTime = 0;
+    shoot.play();
     this.classList.remove('up');
     scoreboard.textContent = score;
 }

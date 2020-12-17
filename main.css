@@ -71,21 +71,6 @@ h1 {
   top: 0;
 }
 
-.popup{
-    display: block;
-    width:25%;
-    background: rgb(212, 212, 212);
-    margin:0 auto;
-    padding:50px;
-    border-radius: 10px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    z-index:9999;
-}
-
 button{
     display: block;
     margin: 10px auto;
@@ -95,19 +80,13 @@ button{
     border:none;
     cursor:pointer;
     padding:10px 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: all 0.2s;
-    background: #efefef;
+    background: #f3f3f3;
+    outline:rgba(0, 0, 0, 0.671);
+    border:rgba(0, 0, 0, 0.671);
 }
 
 button:hover{
-    background: #efefefc7;
-}
-
-.close{
-    font-size: 2rem;
-    position: absolute;
-    top:5%;
-    right:5%;
-    cursor: pointer;
+    background: #efefef9d;
 }
