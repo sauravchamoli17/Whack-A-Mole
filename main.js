@@ -5,9 +5,20 @@ const popup = document.querySelector('.popup');
 const start = document.querySelector('.start');
 const shoot = document.querySelector('.shoot');
 const gameOver = document.querySelector('.game__over');
-let lastHole, timeUp,score;
+const levels = document.querySelectorAll('input[name="level"]');
+const highScore = document.querySelector('.high__score');
+
+if (localStorage.getItem("score") === null) 
+localStorage.setItem('score', 0);   
+
+const highest = localStorage.getItem('score');
+highScore.textContent = highest;
+
+let lastHole, timeUp, score;
+let minTime = 200, maxTime = 1000;
 timeUp = false;
 score = 0;
+
 
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -24,7 +35,7 @@ function randomHoles(holes) {
 }
 
 function peep() {
-    const time = randomTime(200,1000);
+    const time = randomTime(minTime,maxTime);
     const hole = randomHoles(holes);
     hole.classList.add('up');
     setTimeout(() => {
@@ -42,6 +53,10 @@ function startGame() {
     setTimeout(() => {
        timeUp = true;
        gameOver.play();
+       if (score > highest) {
+         localStorage.setItem('score', score);
+         highScore.textContent = score;  
+       }
     },10000);
 }
 
@@ -55,3 +70,8 @@ function bonk(e) {
 }
 
 moles.forEach(mole => mole.addEventListener('click', bonk));
+levels.forEach(level => level.addEventListener('click', function () {
+   scoreboard.textContent = 0;
+   timeUp = true;
+   [minTime, maxTime] = [parseFloat(this.dataset.min), parseFloat(this.dataset.max)];
+}));
